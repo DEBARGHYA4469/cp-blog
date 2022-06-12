@@ -25,6 +25,12 @@ description: >- # this means to ignore newlines until "baseurl:"
 baseurl: "/cp-blog" # the subpath of your site, e.g. /blog
 url: "https://debarghya4469.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 
+defaults:
+  - scope:
+      path: "assets/gif"
+    values:
+      gif: true
+
 # Build settings
 theme: minima
 
