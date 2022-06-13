@@ -1,0 +1,62 @@
+<pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(240, 240, 240); color: rgb(68, 68, 68);">int n,m,q;
+int arr[<span class="hljs-number" style="color: rgb(136, 0, 0);">42</span>][<span class="hljs-number" style="color: rgb(136, 0, 0);">42</span>], ones[<span class="hljs-number" style="color: rgb(136, 0, 0);">42</span>][<span class="hljs-number" style="color: rgb(136, 0, 0);">42</span>];
+int dp1[<span class="hljs-number" style="color: rgb(136, 0, 0);">42</span>][<span class="hljs-number" style="color: rgb(136, 0, 0);">42</span>][<span class="hljs-number" style="color: rgb(136, 0, 0);">42</span>][<span class="hljs-number" style="color: rgb(136, 0, 0);">42</span>], dp2[<span class="hljs-number" style="color: rgb(136, 0, 0);">42</span>][<span class="hljs-number" style="color: rgb(136, 0, 0);">42</span>][<span class="hljs-number" style="color: rgb(136, 0, 0);">42</span>][<span class="hljs-number" style="color: rgb(136, 0, 0);">42</span>];
+ 
+int main(){
+	
+	std::ios::sync_with_stdio(false);
+	cin.tie(<span class="hljs-number" style="color: rgb(136, 0, 0);">0</span>);
+ 
+	cin &gt;&gt; n &gt;&gt; m &gt;&gt; q;
+	for(int i=<span class="hljs-number" style="color: rgb(136, 0, 0);">1</span>;i&lt;=n;i++){
+		for(int j=<span class="hljs-number" style="color: rgb(136, 0, 0);">1</span>;j&lt;=m;j++){
+			char c; cin &gt;&gt; c;
+			arr[i][j] = c-<span class="hljs-string" style="color: rgb(136, 0, 0);">'0'</span>;
+		}
+	}
+ 
+	for(int a=<span class="hljs-number" style="color: rgb(136, 0, 0);">1</span>;a&lt;=n;a++){
+		for(int b=<span class="hljs-number" style="color: rgb(136, 0, 0);">1</span>;b&lt;=m;b++){
+			ones[a][b] = ones[a<span class="hljs-number" style="color: rgb(136, 0, 0);">-1</span>][b] + ones[a][b<span class="hljs-number" style="color: rgb(136, 0, 0);">-1</span>] - ones[a<span class="hljs-number" style="color: rgb(136, 0, 0);">-1</span>][b<span class="hljs-number" style="color: rgb(136, 0, 0);">-1</span>] + arr[a][b];
+ 		}
+	}
+ 
+	for(int a=<span class="hljs-number" style="color: rgb(136, 0, 0);">1</span>;a&lt;=n;a++){
+		for(int b=a;b&lt;=n;b++){
+			for(int c=<span class="hljs-number" style="color: rgb(136, 0, 0);">1</span>;c&lt;=m;c++){
+				for(int d=c;d&lt;=m;d++){
+					dp1[a][b][c][d] = (ones[b][d] - ones[a<span class="hljs-number" style="color: rgb(136, 0, 0);">-1</span>][d] - ones[b][c<span class="hljs-number" style="color: rgb(136, 0, 0);">-1</span>] + ones[a<span class="hljs-number" style="color: rgb(136, 0, 0);">-1</span>][c<span class="hljs-number" style="color: rgb(136, 0, 0);">-1</span>])==<span class="hljs-number" style="color: rgb(136, 0, 0);">0</span>;
+				}
+			}
+		}
+	}
+ 
+ 
+	for(int a=<span class="hljs-number" style="color: rgb(136, 0, 0);">1</span>;a&lt;=n;a++){
+		for(int b=a;b&lt;=n;b++){
+			for(int c=<span class="hljs-number" style="color: rgb(136, 0, 0);">1</span>;c&lt;=m;c++){
+				for(int d=c;d&lt;=m;d++){
+					dp1[a][b][c][d] += dp1[a][b<span class="hljs-number" style="color: rgb(136, 0, 0);">-1</span>][c][d] + dp1[a][b][c][d<span class="hljs-number" style="color: rgb(136, 0, 0);">-1</span>] - dp1[a][b<span class="hljs-number" style="color: rgb(136, 0, 0);">-1</span>][c][d<span class="hljs-number" style="color: rgb(136, 0, 0);">-1</span>];
+				}
+			}
+		}
+	}
+ 
+	for(int a=n;a&gt;=<span class="hljs-number" style="color: rgb(136, 0, 0);">1</span>;a--){
+		for(int b=a;b&lt;=n;b++){
+			for(int c=m;c&gt;=<span class="hljs-number" style="color: rgb(136, 0, 0);">1</span>;c--){
+				for(int d=c;d&lt;=m;d++){
+					dp2[a][b][c][d] += dp2[a+<span class="hljs-number" style="color: rgb(136, 0, 0);">1</span>][b][c][d] + dp2[a][b][c+<span class="hljs-number" style="color: rgb(136, 0, 0);">1</span>][d] - dp2[a+<span class="hljs-number" style="color: rgb(136, 0, 0);">1</span>][b][c+<span class="hljs-number" style="color: rgb(136, 0, 0);">1</span>][d] + dp1[a][b][c][d];
+				}
+			}
+		}
+	}
+ 
+ 
+	for(int qt=<span class="hljs-number" style="color: rgb(136, 0, 0);">0</span>;qt&lt;q;qt++){
+		int a,b,c,d; cin &gt;&gt; a &gt;&gt; b &gt;&gt; c &gt;&gt; d;
+		cout &lt;&lt; dp2[a][c][b][d] &lt;&lt; endl;
+	}
+ 
+	return <span class="hljs-number" style="color: rgb(136, 0, 0);">0</span>;
+}</pre>
