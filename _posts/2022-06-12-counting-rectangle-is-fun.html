@@ -12,22 +12,25 @@ categories: technology
 
 <p> <b> Problem statement </b> Given a boolean matrix and sub-matrix queries. A "good" sub matrix is one which has all 0s. For each query, find how many good sub matrix it contains? </p>
 
-<p> At a first glance (and with my fear with 2D-query problems) this looked like some 2D-segment tree to me. 
-	Later after spending sometime realized that this could be solved with the famous same old prefix sum technique. I used standard way to calculate submatrix sum with some modifications(Technique-4).
+<p> At a first glance (and due to my fear with 2D-query problems) this looked like some 2D-segment tree. 
+	After spending sometime I realized that this could be solved with the same old prefix sum technique. I used the standard way to calculate submatrix sum with some modifications(Technique-4).
 
-	What motivated me to write this blog and a 3b1b style animation(cost me a Sunday to learn <a href="https://github.com/3b1b/manim">manim</a>) is learning technique-1. Interestingly, while I was skimming through the 
-	<a href="https://codeforces.com/contest/372/status/B">solutions</a>(may be I should do this more often as a practice), I found that most people solved the problem with one of the four techniques explained below.
+	What motivated me to write this post and a 3b1b style animation(cost me a Sunday to learn <a href="https://github.com/3b1b/manim">manim</a>) is learning technique-1. Interestingly, while I was going through the 
+	<a href="https://codeforces.com/contest/372/status/B">solutions</a>(may be I should do this more often as a practice) I found that the problem had mostly 4 types of solution as I put them down below. 
 	
-	I only provide a brief few lines gist of the algorithms as this blog is only meant for someone who got interested in the problem decides to solve the problem with little hints. 
+	</br>
+
+	This blog is only meant for someone who got interested in the problem decides to solve the problem with little hints. I provided only a brief explaination of the main idea involved.
 
 
 <li><b>Technique-1(Foreward DP)</b>: Check tourist's <a href="https://codeforces.com/contest/372/submission/5421838"> solution </a> 
 
 </br></br>
 
-<p> Usually while searching for solutions, I sort codeforces's solution list by time of submission to see how the coders who implemented quickly thought of the problem i.e whether they are using some standard approach that might generalize well with other problems. Here, in this case(no prizes for guessing) the very first solution was from <b>the</b> "tourist". Although the implementation was quite clean the idea did not hit me. 
+<p> Usually while searching for solutions, I sort codeforces's solution list by time of submission to see how the cp-ers who implemented the problem quickly thought of the problem i.e whether they are using some standard approach that might generalize well with other problems. Here, in this case(no prizes for guessing) the very first solution was from "tourist". Although the implementation was quite clean the idea did not hit me at first.  
 
-After spending some time on the <b> foreward dp </b> transformations, I realized the nice geometrical idea involved. Any "good" rectangle is only once added to all the covering rectangles after 4 stages of iterations. 
+After spending some time on the <b> foreward dp </b> transformations, I realized it has a nice geometrical idea.
+Idea is any "good" rectangle is only once added to all the covering rectangles after 4 stages of iterations. 
 
 </br></br>
 
