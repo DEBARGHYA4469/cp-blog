@@ -12,27 +12,16 @@ categories: technology
 
 <p> <b> Problem statement </b> Given a boolean matrix and sub-matrix queries. A "good" sub matrix is one which has all 0s. For each query, find how many good sub matrix it contains? </p>
 
-<p> At a first glance (and due to my fear with 2D-query problems) this looked like some 2D-segment tree. 
-	After spending sometime I realized that this could be solved with the same old prefix sum technique. I used the standard way to calculate submatrix sum with some modifications(Technique-4).
+<p> My intial guess looking at the problem was may be this could be a 2D segment tree problem. Also because I struggled with <a href="https://cp-algorithms.com/data_structures/segment_tree.html#simple-2d-segment-tree">understanding 2D range queries recently.</a>	
 
-	What motivated me to write this post and a 3b1b style animation(cost me a Sunday to learn <a href="https://github.com/3b1b/manim">manim</a>) is learning technique-1. Interestingly, while I was going through the 
-	<a href="https://codeforces.com/contest/372/status/B">solutions</a>(may be I should do this more often as a practice) I found that the problem had mostly 4 types of solution as I put them down below. 
-	
-	</br></br>
-
-	This blog is only meant for someone who got interested in the problem decides to solve the problem with little hints. I provided only a brief explaination of the main idea involved. 
-
-</p>
-
+After trying for sometime, I gave up on the segment tree idea and shifted to think in lines of prefix sum. I came up with a idea similar to technique-4 discussed in the blog. The reason to keep this last is because I learnt some really cool techniques going over the <a href="https://codeforces.com/contest/372/status/B">AC solutions</a> which can be used to solve this problem and I wanted to show them first. 
 
 <li><b>Technique-1(Foreward DP)</b>: Check tourist's <a href="https://codeforces.com/contest/372/submission/5421838"> solution </a> 
 
 </br></br>
 
-<p> Usually while searching for solutions, I sort codeforces's solution list by time of submission to see how the cp-ers who implemented the problem quickly thought of the problem i.e whether they are using some standard approach that might generalize well with other problems. Here, in this case(no prizes for guessing) the very first solution was from "tourist". Although the implementation was quite clean the idea did not hit me at first.  
+ <p> Technique 1 is the major motivation behind the post. This solution by tourist did not seem easy to understand. All the 4 nested loops repeated 4 times seemed cryptic to me for quite a long time. I started to gain some insights by treating them as foreward DP transformations. It has a pretty geometrical idea that a "good" rectangle is only added to all the "covering" rectangles after 4 stages of iteration. I tried to animate the covering rectangle concept and the transformation ideas in a 3b1b style animation video below.  
 
-After spending some time on the <b> foreward dp </b> transformations, I realized it has a nice geometrical idea.
-Idea is any "good" rectangle is only once added to all the covering rectangles after 4 stages of iterations. 
 
 </br></br>
 
