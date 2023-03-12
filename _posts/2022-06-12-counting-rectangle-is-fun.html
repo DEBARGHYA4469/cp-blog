@@ -52,6 +52,8 @@ At first, I started thinking about this problem in terms of 2-D segment tree, be
 {% include blog1/gencode1.html %}
 </details>
 
+--- 
+
 <li><b>Technique-2(DP sets DP+Inclusion/Exclusion)</b></br> </br>
 
 <p> Basic idea of this approach is to calculate the query in two steps. In first step, $dp_1[i][j][k][l]$ counts all good rectangles in $rect(i,j,k,l)$ with top-left corner $(i,k)$ fixed and bottom right corner $(x,y)$ such that $x<=k \space\&\space y<=l$. In the second iteration, use $dp_2$ to find all good rectangles which end at (x,y) such that $x<=k \space\&\space y<=l$ and start after $(i,k)$. $dp_1$ is needed by $dp_2$ to find the unknown set i.e all good rectangles starting at $(i,k)$ ending anywhere before $(j,l)$.
@@ -60,7 +62,14 @@ At first, I started thinking about this problem in terms of 2-D segment tree, be
 <p> AC Solution: <a href="https://codeforces.com/contest/372/submission/160231567">link</a><p>
 <p>  $$ Complexity: O(n^4)$$</p>
 
+<details>
+	<summary>Code for Technique-2
+	</summary>
 {% include blog1/gencode2.html %}
+</details>
+
+---
+
 
 <li><b>Technique-3 (Inclusion-Exclusion DP) </b>
 <p>
@@ -72,7 +81,11 @@ Expand using <a href="https://en.wikipedia.org/wiki/Inclusion%E2%80%93exclusion_
 <p> AC Solution: <a href="https://codeforces.com/contest/372/submission/160229492">link</a><p>
 <p>  $$ Complexity: O(n^4)$$ </p>
 
+<details>
+	<summary>Code for Technique-3
+	</summary>
 {% include blog1/gencode3.html %}
+</details>
 
 <li><b>Technique-4 (Prefix Sum DP)</b>
 
@@ -81,6 +94,10 @@ Expand using <a href="https://en.wikipedia.org/wiki/Inclusion%E2%80%93exclusion_
 <p> AC Solution: <a href="https://codeforces.com/contest/372/submission/160230098">link</a><p>
 <p> $$ Complexity: O(n^5) $$</p>
 
+<details>
+	<summary>Code for Technique-4
+	</summary>
 {% include blog1/gencode4.html %}
+</details>
 
 <b>Happy Coding!</b>
