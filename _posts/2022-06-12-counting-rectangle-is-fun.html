@@ -52,7 +52,7 @@ At first, I started thinking about this problem in terms of 2-D segment tree, be
 {% include blog1/gencode1.html %}
 </details>
 
-</br> 
+</br></br>
 
 <li><b>Technique-2(DP sets DP+Inclusion/Exclusion)</b></br> </br>
 
@@ -68,7 +68,7 @@ At first, I started thinking about this problem in terms of 2-D segment tree, be
 {% include blog1/gencode2.html %}
 </details>
 
-</br>
+</br></br>
 
 
 <li><b>Technique-3 (Inclusion-Exclusion DP) </b>
@@ -87,6 +87,8 @@ Expand using <a href="https://en.wikipedia.org/wiki/Inclusion%E2%80%93exclusion_
 {% include blog1/gencode3.html %}
 </details>
 
+</br></br>
+
 <li><b>Technique-4 (Prefix Sum DP)</b>
 
 <p>Idea behind this is simple. Calculate $dp(i,j,k,l)$ using $dp(i,j,k-1,l) \cup dp(i,j,k,l-1)$ and calculate all those good rectangles that end its right corner in $(j,l)$. Calculating the last part becomes easy if we calculate all the zero-towers (col-wise) from a particular cell.  
@@ -99,5 +101,7 @@ Expand using <a href="https://en.wikipedia.org/wiki/Inclusion%E2%80%93exclusion_
 	</summary>
 {% include blog1/gencode4.html %}
 </details>
+
+</br></br>
 
 <b>Happy Coding!</b>
