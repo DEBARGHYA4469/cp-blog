@@ -10,17 +10,17 @@ categories: technology
 
 <p> Problem: <a href="https://codeforces.com/problemset/problem/372/B">Counting Rectangles is Fun!</a> </p> 
 
-<p> <b> Problem statement </b> Given a boolean matrix and sub-matrix queries. A "good" sub matrix is one which has all 0s. For each query, find how many good sub matrix it contains? </p>
+<p> <b> Problem: </b> You are given a boolean matrix consisting of 0/1 and queries on it's sub-matrices. A matrix with all it's element as 0 is defined as a good matrix. For each query, calculate how many sub-matrices is good? </p>
 
-<p> My intial guess looking at the problem was may be this could be a 2D segment tree problem. Also because I struggled with <a href="https://cp-algorithms.com/data_structures/segment_tree.html#simple-2d-segment-tree">understanding 2D range queries recently.</a>	
-
-After trying for sometime, I gave up on the segment tree idea and shifted to think in lines of prefix sum. I came up with a idea similar to technique-4 discussed in the blog. The reason to keep this last is because I learnt some really cool techniques going over the <a href="https://codeforces.com/contest/372/status/B">AC solutions</a> which can be used to solve this problem and I wanted to show them first. 
+At first, I started thinking about this problem in terms of 2-D segment tree, because recently I learnt about it. But I quickly gave up on the segment tree idea and shifted to think in lines of prefix sum. I came up with a idea similar to Technique-4 discussed below. The reason to keep this at last is because I learnt some really cool techniques going over the <a href="https://codeforces.com/contest/372/status/B">AC solutions</a> which can be used to solve this problem and I wanted to show them first. 
 
 <li><b>Technique-1(Foreward DP)</b>: Check tourist's <a href="https://codeforces.com/contest/372/submission/5421838"> solution </a> 
 
 </br></br>
 
- <p> Technique 1 is the major motivation behind the post. This solution by tourist did not seem easy to understand. All the 4 nested loops repeated 4 times seemed cryptic to me for quite a long time. I started to gain some insights by treating them as foreward DP transformations. It has a pretty geometrical idea that a "good" rectangle is only added to all the "covering" rectangles after 4 stages of iteration. I tried to animate the covering rectangle concept and the transformation ideas in a 3b1b style animation video below.  
+ <p> Technique 1 is the major motivation behind the post. I have never seen this idea before and I could not find this approach only in tourist's solution.  
+ With 4 nested loops, every good matrix with add its contribution to it's super-matrices, if we can call it. This is a really cool idea. Please go through the code to understand more!
+ I tried to animate the covering rectangle concept and the transformation ideas in a 3b1b style animation video below.  
 
 
 </br></br>
