@@ -60,7 +60,7 @@ At first, I started thinking about this problem in terms of 2-D segment tree, be
 
 
 <p> AC Solution: <a href="https://codeforces.com/contest/372/submission/160231567">link</a><p>
-<p> Runs in $$ O(n^4) $$</p>
+<p> Runs in $ O(n^4) $</p>
 
 <details>
 	<summary>Code for Technique-2
@@ -79,7 +79,7 @@ Expand using <a href="https://en.wikipedia.org/wiki/Inclusion%E2%80%93exclusion_
 </p>
 
 <p> AC Solution: <a href="https://codeforces.com/contest/372/submission/160229492">link</a><p>
-<p> Runs in $$ O(n^4) $$ </p>
+<p> Runs in $ O(n^4) $ </p>
 
 <details>
 	<summary>Code for Technique-3
@@ -92,7 +92,7 @@ Expand using <a href="https://en.wikipedia.org/wiki/Inclusion%E2%80%93exclusion_
 <p>Idea behind this is simple. Calculate $dp(i,j,k,l)$ using $dp(i,j,k-1,l) \cup dp(i,j,k,l-1)$ and calculate all those good rectangles that end its right corner in $(j,l)$. Calculating the last part becomes easy if we calculate all the zero-towers (col-wise) from a particular cell.  
 
 <p> AC Solution: <a href="https://codeforces.com/contest/372/submission/160230098">link</a><p>
-<p> Runs in $$ O(n^5) $$</p>
+<p> Runs in $ O(n^5) $</p>
 
 <details>
 	<summary>Code for Technique-4
